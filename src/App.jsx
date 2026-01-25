@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>Welcome to Geared energy</p>
+      <p>Welcome to Geared Energy | Something Cool is in the corner</p>
       
     </div>
   )
