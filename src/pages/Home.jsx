@@ -78,6 +78,7 @@ const Home = () => {
             </div>
             <div>
               <div className="bg-gray-300 h-96 rounded-xl shadow-2xl flex items-center justify-center">
+                {/* insert photo here */}
                 <span className="text-gray-600">Boiler Installation Image</span>
               </div>
             </div>
@@ -172,8 +173,8 @@ const Home = () => {
             <a href="mailto:sales@gearedenergy.com" className="bg-white text-primary hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition duration-300">
               Email: sales@gearedenergy.com
             </a>
-            <a href="tel:+254700000000" className="bg-secondary hover:bg-red-700 font-semibold py-3 px-8 rounded-lg transition duration-300">
-              Call: +254 700 000 000
+            <a href="tel:+254729319247" className="bg-secondary hover:bg-red-700 font-semibold py-3 px-8 rounded-lg transition duration-300">
+              Call: +254 729 319 247
             </a>
           </div>
         </div>
