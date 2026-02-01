@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ServiceCard from "../components/ServiceCard";
-import boilerImage from "../img/12430.jpg";
-import BoilerImage1 from "../img/11503.jpg";
+
+// image imports
+import boilerImage1 from "../img/12208.jpg";
+import boilerImage2 from "../img/refactory-cement.jpg";
+// Import additional images - you'll need to add these images to your img folder
+import boilerImage3 from "../img/insulation-mat.jpg";
+import boilerImage4 from "../img/12214.jpg";
+import boilerImage5 from "../img/11466.jpg";
+import boilerImage6 from "../img/11503.jpg";
+import boilerImage7 from "../img/12430.jpg";
+import boilerImage8 from "../img/11503.jpg";
 
 const Home = () => {
   const services = [
@@ -92,6 +101,69 @@ const Home = () => {
     "Energy efficiency audits",
   ];
 
+  // Slideshow images - replace these paths with your actual image files
+  const slides = [
+    {
+      id: 1,
+      image: boilerImage1,
+      alt: "Boiler Installation Project 1",
+    },
+    {
+      id: 2,
+      image: boilerImage2,
+      alt: "Boiler Maintenance Project 2",
+    },
+    {
+      id: 3,
+      image: boilerImage3,
+      alt: "Industrial Boiler System",
+    },
+    {
+      id: 4,
+      image: boilerImage4,
+      alt: "Boiler Service Team",
+    },
+    {
+      id: 5,
+      image: boilerImage5,
+      alt: "Boiler Parts Inventory",
+    },
+  ];
+
+  // Slideshow state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-play slideshow
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, slides.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+    // Resume auto-play after 10 seconds of manual navigation
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -136,9 +208,8 @@ const Home = () => {
             </div>
 
             <div className="flex justify-center lg:justify-end">
-              {/* boiler image */}
               <img
-                src={BoilerImage1}
+                src={boilerImage6}
                 alt="Boiler Installation"
                 className="h-96 rounded-xl object-contain"
               />
@@ -167,20 +238,99 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section with Slideshow */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div>
-                {/* image 2 */}
-                <img
-                  src={boilerImage}
-                  alt="Boiler Maintenance"
-                  className="h-96 rounded-xl shadow-lg object-cover"
-                />
+              {/* Slideshow Container */}
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                {/* Slides */}
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {slides.map((slide) => (
+                    <div key={slide.id} className="w-full flex-shrink-0">
+                      <img
+                        src={slide.image}
+                        alt={slide.alt}
+                        className="w-full h-96 object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Slide indicators */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        currentSlide === index
+                          ? "bg-white"
+                          : "bg-white/50 hover:bg-white/80"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* Slide counter */}
+                <div className="absolute top-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
+                  {currentSlide + 1} / {slides.length}
+                </div>
+              </div>
+
+              {/* Slideshow description */}
+              <div className="mt-4 text-center text-gray-600">
+                <p>Browse through our projects and services gallery</p>
               </div>
             </div>
+
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Why Choose Geared Energy?
