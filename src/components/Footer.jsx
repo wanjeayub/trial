@@ -122,6 +122,14 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
+                  href="mailto:gearedenergy@gmail.com"
+                  className="text-gray-400 hover:text-white transition block"
+                >
+                  gearedenergy@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:info@gearedenergy.com"
                   className="text-gray-400 hover:text-white transition block"
                 >

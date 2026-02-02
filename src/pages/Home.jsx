@@ -9,8 +9,8 @@ import boilerImage3 from "../img/insulation-mat.jpg";
 import boilerImage4 from "../img/12214.jpg";
 import boilerImage5 from "../img/11466.jpg";
 import boilerImage6 from "../img/11503.jpg";
-import boilerImage7 from "../img/12430.jpg";
-import boilerImage8 from "../img/11503.jpg";
+// import boilerImage7 from "../img/12430.jpg";
+// import boilerImage8 from "../img/11503.jpg";
 
 const Home = () => {
   const services = [
@@ -432,7 +432,7 @@ const Home = () => {
               href="tel:+254729319247"
               className="bg-secondary hover:bg-red-700 font-semibold py-3 px-8 rounded-lg transition duration-300"
             >
-              Call: +254 729 319 247
+              Call: +254729319247
             </a>
           </div>
         </div>
