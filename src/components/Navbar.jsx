@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logoImage from "../img/logo-1.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,11 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="bg-primary text-white p-2 rounded-lg">
-                <span className="text-xl font-bold">GE</span>
-              </div>
+              <img
+                src={logoImage}
+                alt="Geared Energy Logo"
+                className="h-10 w-12"
+              />
               <span className="ml-3 text-xl font-bold text-primary">
                 Geared Energy
               </span>
