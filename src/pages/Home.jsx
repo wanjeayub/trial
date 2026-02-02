@@ -12,6 +12,13 @@ import boilerImage6 from "../img/11503.jpg";
 // import boilerImage7 from "../img/12430.jpg";
 // import boilerImage8 from "../img/11503.jpg";
 
+// Import client logos - You'll need to add these images to your img folder
+import cherryLogo from "../img/cherry-logo.png";
+import timberStudiosLogo from "../img/timber-logo.jpeg";
+import boilafricaLogo from "../img/boilafrica_logo.jpg";
+import beulaTimberLogo from "../img/beulah_logo.jpg";
+import mokoMattressesLogo from "../img/moko_logo.jpeg";
+
 const Home = () => {
   const services = [
     {
@@ -99,6 +106,40 @@ const Home = () => {
     "Free consultation",
     "Maintenance contracts",
     "Energy efficiency audits",
+  ];
+
+  // Clients data
+  const clients = [
+    {
+      id: 1,
+      name: "Cherry Interior Ltd.",
+      logo: cherryLogo,
+      alt: "Cherry Interior Ltd. Logo",
+    },
+    {
+      id: 2,
+      name: "Timber Studios Ltd.",
+      logo: timberStudiosLogo,
+      alt: "Timber Studios Ltd. Logo",
+    },
+    {
+      id: 3,
+      name: "Boilafrica General Suppliers",
+      logo: boilafricaLogo,
+      alt: "Boilafrica General Suppliers Logo",
+    },
+    {
+      id: 4,
+      name: "Beula Timber Ltd.",
+      logo: beulaTimberLogo,
+      alt: "Beula Timber Ltd. Logo",
+    },
+    {
+      id: 5,
+      name: "Moko Mattresses Ltd.",
+      logo: mokoMattressesLogo,
+      alt: "Moko Mattresses Ltd. Logo",
+    },
   ];
 
   // Slideshow images - replace these paths with your actual image files
@@ -234,6 +275,125 @@ const Home = () => {
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Clients Section */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Valued Clients
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Trusted by leading companies across Kenya for reliable boiler
+              solutions and services
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Horizontal scrolling container for clients */}
+            <div className="overflow-x-auto pb-8">
+              <div className="flex space-x-8 min-w-min">
+                {clients.map((client) => (
+                  <div
+                    key={client.id}
+                    className="flex-shrink-0 w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group"
+                  >
+                    {/* Client Logo Container */}
+                    <div className="h-48 bg-gray-50 flex items-center justify-center p-6">
+                      <img
+                        src={client.logo}
+                        alt={client.alt}
+                        className="max-h-32 max-w-48 object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Client Name */}
+                    <div className="p-6 text-center">
+                      <h3 className="font-semibold text-lg text-gray-800">
+                        {client.name}
+                      </h3>
+                      <div className="mt-2 flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-yellow-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-yellow-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-yellow-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-yellow-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-yellow-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Optional: Scroll indicators for touch devices */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {clients.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-gray-300"
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonial quote */}
+          <div className="mt-12 text-center max-w-3xl mx-auto">
+            <div className="text-primary mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 mx-auto"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+            </div>
+            <p className="text-xl italic text-gray-700 mb-4">
+              "Geared Energy provided exceptional boiler installation services
+              for our manufacturing facility. Their expertise and
+              professionalism exceeded our expectations."
+            </p>
+            <p className="font-semibold text-gray-800">
+              — Operations Manager, Moko Mattresses Ltd.
+            </p>
           </div>
         </div>
       </section>
