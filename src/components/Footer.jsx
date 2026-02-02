@@ -1,4 +1,5 @@
 import React from "react";
+import logoImage from "../img/logo-1.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <div className="bg-white text-primary p-2 rounded-lg">
-                <span className="text-xl font-bold">GE</span>
+                <img
+                  src={logoImage}
+                  alt="Geared Energy Logo"
+                  className="h-10 w-12"
+                />
               </div>
               <span className="ml-3 text-xl font-bold">Geared Energy ltd</span>
             </div>
