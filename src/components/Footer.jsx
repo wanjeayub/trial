@@ -17,7 +17,9 @@ const Footer = () => {
                   className="h-10 w-12"
                 />
               </div>
-              <span className="ml-3 text-xl font-bold">Geared Energy ltd</span>
+              <span className="ml-3 text-xl font-bold">
+                Geared Energy Solutions ltd
+              </span>
             </div>
             <p className="text-gray-400">
               Leading provider of boiler solutions, servicing, and spare parts
