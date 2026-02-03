@@ -64,11 +64,11 @@ const Contact = () => {
       ),
       title: "Email Addresses",
       details: [
-        "info@gearedenergy.com",
+        "gearedenergy@gmail.com",
         "sales@gearedenergy.com",
         "support@gearedenergy.com",
       ],
-      action: "mailto:info@gearedenergy.com",
+      action: "mailto:gearedenergy@gmail.com",
     },
     {
       icon: (
