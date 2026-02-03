@@ -23,7 +23,7 @@ const Navbar = () => {
                 className="h-10 w-12"
               />
               <span className="ml-3 text-xl font-bold text-primary">
-                Geared Energy
+                Geared Energy ltd
               </span>
             </div>
           </div>
