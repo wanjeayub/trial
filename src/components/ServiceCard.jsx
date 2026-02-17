@@ -19,7 +19,7 @@ const ServiceCard = ({ image, title, description }) => {
         <p className="text-gray-600">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <span className="text-primary font-semibold inline-flex items-center">
-            Learn More
+            <a href="/services">Learn More</a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 ml-1"
