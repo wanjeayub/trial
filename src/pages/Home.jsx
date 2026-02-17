@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ServiceCard from "../components/ServiceCard";
 
 // image imports
 import boilerImage1 from "../img/12208.jpg";
 import boilerImage2 from "../img/refactory-cement.jpg";
-// Import additional images - you'll need to add these images to your img folder
 import boilerImage3 from "../img/insulation-mat.jpg";
 import boilerImage4 from "../img/12214.jpg";
 import boilerImage5 from "../img/11466.jpg";
 import boilerImage6 from "../img/11503.jpg";
-// import boilerImage7 from "../img/12430.jpg";
-// import boilerImage8 from "../img/11503.jpg";
 
-// Import client logos - You'll need to add these images to your img folder
+// Import service images - replace with your actual service images
+import boilerInstallationImg from "../img/12208.jpg";
+import maintenanceImg from "../img/12214.jpg";
+import sparePartsImg from "../img/11503.jpg";
+import emergencyRepairsImg from "../img/refactory-cement.jpg";
+
+// Import client logos
 import cherryLogo from "../img/cherry-logo.png";
 import timberStudiosLogo from "../img/timber-logo.jpeg";
 import boilafricaLogo from "../img/boilafrica_logo.jpg";
@@ -22,77 +25,25 @@ import mokoMattressesLogo from "../img/moko_logo.jpeg";
 const Home = () => {
   const services = [
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-primary"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      image: boilerInstallationImg,
       title: "Boiler Installation",
       description:
         "Professional installation of industrial and commercial boilers with certified expertise.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-primary"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      image: maintenanceImg,
       title: "Maintenance & Servicing",
       description:
         "Regular maintenance and servicing to ensure optimal performance and longevity.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-primary"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      image: sparePartsImg,
       title: "Spare Parts Supply",
       description:
         "Genuine boiler spare parts from leading manufacturers with warranty.",
     },
     {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-primary"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      image: emergencyRepairsImg,
       title: "Emergency Repairs",
       description:
         "24/7 emergency repair services for unexpected breakdowns and failures.",
@@ -108,7 +59,6 @@ const Home = () => {
     "Energy efficiency audits",
   ];
 
-  // Clients data
   const clients = [
     {
       id: 1,
@@ -142,7 +92,6 @@ const Home = () => {
     },
   ];
 
-  // Slideshow images - replace these paths with your actual image files
   const slides = [
     {
       id: 1,
@@ -171,9 +120,35 @@ const Home = () => {
     },
   ];
 
-  // Slideshow state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isVisible, setIsVisible] = useState({});
+  const sectionRefs = useRef([]);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observers = sectionRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible((prev) => ({ ...prev, [index]: true }));
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect());
+    };
+  }, []);
 
   // Auto-play slideshow
   useEffect(() => {
@@ -189,7 +164,6 @@ const Home = () => {
   const goToSlide = (index) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
-    // Resume auto-play after 10 seconds of manual navigation
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
@@ -206,29 +180,36 @@ const Home = () => {
   };
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="pt-20 pb-20 bg-gradient-to-r from-primary to-blue-800 text-white">
+    <div className="overflow-hidden">
+      {/* Hero Section with Fade-in Animation */}
+      <section
+        ref={(el) => (sectionRefs.current[0] = el)}
+        className={`pt-20 pb-20 bg-gradient-to-r from-primary to-blue-800 text-white transition-all duration-1000 transform ${
+          isVisible[0]
+            ? "translate-y-0 opacity-100"
+            : "translate-y-10 opacity-0"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="animate-fadeInLeft">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse-slow">
                 Professional Boiler Solutions in Kenya
               </h1>
-              <p className="text-xl mb-8 text-blue-100">
+              <p className="text-xl mb-8 text-blue-100 animate-fadeInUp delay-200">
                 Your trusted partner for boiler installation, maintenance, and
                 genuine spare parts supply. Serving industries across Kenya with
                 excellence and reliability.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 animate-fadeInUp delay-400">
                 <a
                   href="/contact"
-                  className="btn-secondary inline-flex items-center justify-center"
+                  className="btn-secondary inline-flex items-center justify-center hover:scale-105 transform transition-transform duration-300"
                 >
                   Get Free Quote
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2 h-5 w-5"
+                    className="ml-2 h-5 w-5 animate-bounce-x"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -241,30 +222,38 @@ const Home = () => {
                 </a>
                 <a
                   href="/services"
-                  className="bg-white text-primary hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center justify-center"
+                  className="bg-white text-primary hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 transform inline-flex items-center justify-center"
                 >
                   Our Services
                 </a>
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end animate-float">
               <img
                 src={boilerImage6}
                 alt="Boiler Installation"
-                className="h-96 rounded-xl object-contain"
+                className="h-96 rounded-xl object-contain hover:scale-105 transform transition-transform duration-500"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section-padding bg-gray-50">
+      {/* Services Section with Image Cards */}
+      <section
+        ref={(el) => (sectionRefs.current[1] = el)}
+        className={`section-padding bg-gray-50 transition-all duration-1000 transform ${
+          isVisible[1]
+            ? "translate-y-0 opacity-100"
+            : "translate-y-10 opacity-0"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
               Our Services
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-primary transform scale-x-0 transition-transform duration-500 origin-left group-hover:scale-x-100"></span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Comprehensive boiler solutions tailored to meet your industrial
@@ -273,14 +262,27 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+              <div
+                key={index}
+                className="transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <ServiceCard {...service} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Clients Section */}
-      <section className="section-padding bg-white">
+      {/* Clients Section with Marquee Effect */}
+      <section
+        ref={(el) => (sectionRefs.current[2] = el)}
+        className={`section-padding bg-white transition-all duration-1000 transform ${
+          isVisible[2]
+            ? "translate-y-0 opacity-100"
+            : "translate-y-10 opacity-0"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -292,94 +294,52 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="relative">
-            {/* Horizontal scrolling container for clients */}
-            <div className="overflow-x-auto pb-8">
-              <div className="flex space-x-8 min-w-min">
-                {clients.map((client) => (
-                  <div
-                    key={client.id}
-                    className="flex-shrink-0 w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group"
-                  >
-                    {/* Client Logo Container */}
+          <div className="relative overflow-hidden">
+            {/* Animated Marquee for Clients */}
+            <div className="flex animate-marquee whitespace-nowrap">
+              {[...clients, ...clients].map((client, index) => (
+                <div
+                  key={`${client.id}-${index}`}
+                  className="flex-shrink-0 w-64 mx-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                >
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
                     <div className="h-48 bg-gray-50 flex items-center justify-center p-6">
                       <img
                         src={client.logo}
                         alt={client.alt}
-                        className="max-h-32 max-w-48 object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="max-h-32 max-w-48 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
                       />
                     </div>
-
-                    {/* Client Name */}
                     <div className="p-6 text-center">
                       <h3 className="font-semibold text-lg text-gray-800">
                         {client.name}
                       </h3>
-                      <div className="mt-2 flex items-center justify-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
+                      <div className="mt-2 flex items-center justify-center animate-pulse-slow">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 text-yellow-400"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Optional: Scroll indicators for touch devices */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {clients.map((_, index) => (
-                <div
-                  key={index}
-                  className="w-2 h-2 rounded-full bg-gray-300"
-                ></div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Testimonial quote */}
-          <div className="mt-12 text-center max-w-3xl mx-auto">
+          {/* Testimonial with Fade-in Animation */}
+          <div className="mt-12 text-center max-w-3xl mx-auto animate-fadeInUp">
             <div className="text-primary mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 mx-auto"
+                className="h-8 w-8 mx-auto animate-bounce-slow"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -399,15 +359,21 @@ const Home = () => {
       </section>
 
       {/* Features Section with Slideshow */}
-      <section className="section-padding">
+      <section
+        ref={(el) => (sectionRefs.current[3] = el)}
+        className={`section-padding transition-all duration-1000 transform ${
+          isVisible[3]
+            ? "translate-y-0 opacity-100"
+            : "translate-y-10 opacity-0"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Slideshow Container */}
-              <div className="relative overflow-hidden rounded-xl shadow-lg">
-                {/* Slides */}
+              {/* Slideshow Container with Animations */}
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <div
-                  className="flex transition-transform duration-500 ease-in-out"
+                  className="flex transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {slides.map((slide) => (
@@ -415,16 +381,16 @@ const Home = () => {
                       <img
                         src={slide.image}
                         alt={slide.alt}
-                        className="w-full h-96 object-cover"
+                        className="w-full h-96 object-cover transform transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
                   ))}
                 </div>
 
-                {/* Navigation buttons */}
+                {/* Animated Navigation Buttons */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
                   aria-label="Previous slide"
                 >
                   <svg
@@ -444,7 +410,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
                   aria-label="Next slide"
                 >
                   <svg
@@ -463,31 +429,27 @@ const Home = () => {
                   </svg>
                 </button>
 
-                {/* Slide indicators */}
+                {/* Animated Indicators */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                   {slides.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      className={`transition-all duration-300 ${
                         currentSlide === index
-                          ? "bg-white"
-                          : "bg-white/50 hover:bg-white/80"
-                      }`}
+                          ? "w-6 h-3 bg-white"
+                          : "w-3 h-3 bg-white/50 hover:bg-white/80"
+                      } rounded-full`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
-
-                {/* Slide counter */}
-                <div className="absolute top-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
-                  {currentSlide + 1} / {slides.length}
-                </div>
               </div>
 
-              {/* Slideshow description */}
               <div className="mt-4 text-center text-gray-600">
-                <p>Browse through our projects and services gallery</p>
+                <p className="animate-pulse-slow">
+                  Browse through our projects and services gallery
+                </p>
               </div>
             </div>
 
@@ -497,10 +459,14 @@ const Home = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-center">
+                  <div
+                    key={index}
+                    className="flex items-center transform transition-all duration-300 hover:translate-x-2"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="text-green-500 mr-3 h-5 w-5"
+                      className="text-green-500 mr-3 h-5 w-5 animate-bounce-slow"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -514,26 +480,31 @@ const Home = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Stats with Counter Animation */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="text-center">
+                <div className="text-center transform transition-all duration-300 hover:scale-110">
                   <div className="text-primary mx-auto mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 mx-auto"
+                      className="h-8 w-8 mx-auto animate-float"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
                       <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                     </svg>
                   </div>
-                  <div className="text-2xl font-bold">50+</div>
+                  <div className="text-2xl font-bold animate-pulse-slow">
+                    50+
+                  </div>
                   <div className="text-gray-600">Clients Served</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center transform transition-all duration-300 hover:scale-110">
                   <div className="text-primary mx-auto mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 mx-auto"
+                      className="h-8 w-8 mx-auto animate-float"
+                      style={{ animationDelay: "0.2s" }}
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -544,14 +515,17 @@ const Home = () => {
                       />
                     </svg>
                   </div>
-                  <div className="text-2xl font-bold">5+</div>
+                  <div className="text-2xl font-bold animate-pulse-slow">
+                    5+
+                  </div>
                   <div className="text-gray-600">Years Experience</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center transform transition-all duration-300 hover:scale-110">
                   <div className="text-primary mx-auto mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 mx-auto"
+                      className="h-8 w-8 mx-auto animate-float"
+                      style={{ animationDelay: "0.4s" }}
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -562,7 +536,9 @@ const Home = () => {
                       />
                     </svg>
                   </div>
-                  <div className="text-2xl font-bold">24/7</div>
+                  <div className="text-2xl font-bold animate-pulse-slow">
+                    24/7
+                  </div>
                   <div className="text-gray-600">Support Available</div>
                 </div>
               </div>
@@ -571,10 +547,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with Pulse Animation */}
       <section className="bg-primary text-white section-padding">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">
             Need Boiler Solutions?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
@@ -584,19 +560,113 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:sales@gearedenergy.com"
-              className="bg-white text-primary hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition duration-300"
+              className="bg-white text-primary hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-110 transform hover:shadow-2xl"
             >
               Email: gearedenergy@gmail.com
             </a>
             <a
               href="tel:+254729319247"
-              className="bg-secondary hover:bg-red-700 font-semibold py-3 px-8 rounded-lg transition duration-300"
+              className="bg-secondary hover:bg-red-700 font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-110 transform hover:shadow-2xl"
             >
               Call: +254729319247
             </a>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes bounce-x {
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(5px);
+          }
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-fadeInLeft {
+          animation: fadeInLeft 1s ease-out;
+        }
+
+        .animate-fadeInUp {
+          animation: fadeInUp 1s ease-out forwards;
+          opacity: 0;
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-bounce-x {
+          animation: bounce-x 1s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-bounce-slow {
+          animation: bounce 2s ease-in-out infinite;
+        }
+
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+
+        .delay-200 {
+          animation-delay: 200ms;
+        }
+
+        .delay-400 {
+          animation-delay: 400ms;
+        }
+
+        .group:hover .animate-marquee {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 };
