@@ -10,7 +10,7 @@ import boilerImage5 from "../img/11466.jpg";
 import boilerImage6 from "../img/11503.jpg";
 
 // Import service images - replace with your actual service images
-import boilerInstallationImg from "../img/12208.jpg";
+import boilerInstallationImg from "../img/boiler-installation.jpeg";
 import maintenanceImg from "../img/12214.jpg";
 import sparePartsImg from "../img/11503.jpg";
 import emergencyRepairsImg from "../img/refactory-cement.jpg";
