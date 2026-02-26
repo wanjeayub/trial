@@ -168,7 +168,7 @@ const About = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold text-primary mb-2">10+</div>
               <div className="text-lg font-semibold mb-2">
                 Projects Completed
               </div>
@@ -177,7 +177,7 @@ const About = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold text-primary mb-2">10+</div>
               <div className="text-lg font-semibold mb-2">
                 Certified Engineers
               </div>
