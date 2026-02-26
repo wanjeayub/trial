@@ -100,24 +100,26 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Founded in 2008, Geared Energy has grown to become one of
-                  Kenya's most trusted providers of boiler solutions, servicing,
-                  and spare parts. Our journey began with a simple mission: to
-                  provide reliable and efficient boiler systems that power
-                  industries across the nation.
+                  Geared Energy solution ltd, is one of the leading Kenyan-based
+                  boilers & utility solution providers in the field of boiler
+                  installation, Operation and maintenance, selling of
+                  engineering items, providing engineering expertise,
+                  installation, fabrication, bleeding a unique infrastructure
+                  services and expertise.
                 </p>
                 <p>
-                  With over 15 years of experience, we have built a reputation
-                  for excellence, reliability, and customer satisfaction. Our
-                  team of certified professionals brings extensive expertise to
-                  every project, ensuring optimal performance and safety
-                  standards.
+                  We contribute towards every equipment efficiency under a
+                  single roof. A team of trained and skilled manpower with the
+                  right blend of experience and youth is entrusted with
+                  responsibility.
                 </p>
                 <p>
-                  Today, we serve a diverse range of industries including
-                  manufacturing, food processing, pharmaceuticals, textiles, and
-                  hospitality, providing comprehensive boiler solutions tailored
-                  to each client's specific needs.
+                  Our grate association with leading Boiler makers has set up a
+                  notch apart from the others. We have paved the way to ensuring
+                  long-term commitment by being the most trusted services
+                  partner to the leading industries, like engineering, steel,
+                  food products, and Beverage etc. Our esteemed clientele
+                  includes both commercial and industrial.
                 </p>
               </div>
             </div>

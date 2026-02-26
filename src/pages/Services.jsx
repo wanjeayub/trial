@@ -54,7 +54,7 @@ const Services = () => {
     {
       title: "Installation Services",
       description:
-        "Professional installation of industrial boilers with full commissioning",
+        "Professional installation of industrial boilers with full commissioning for optimal performance",
       features: [
         "Site assessment",
         "Equipment installation",

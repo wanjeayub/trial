@@ -16,7 +16,7 @@ const ServiceCard = ({ image, title, description }) => {
         <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-primary transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-700">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <span className="text-primary font-semibold inline-flex items-center">
             <a href="/services">Learn More</a>
