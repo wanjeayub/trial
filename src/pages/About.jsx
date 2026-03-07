@@ -1,5 +1,8 @@
 import React from "react";
 
+// boiler team image
+import BoilerTeam from "../img/Boiler-Team-inaction.jpg";
+
 const About = () => {
   const values = [
     {
@@ -125,7 +128,11 @@ const About = () => {
             </div>
             <div>
               <div className="bg-gray-300 h-96 rounded-xl shadow-lg flex items-center justify-center">
-                <span className="text-gray-600">Geared Energy Team Image</span>
+                <img
+                  src={BoilerTeam}
+                  alt="Geared Energy Team in Action"
+                  className="h-full w-full object-cover rounded-xl"
+                />
               </div>
             </div>
           </div>
