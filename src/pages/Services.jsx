@@ -1,6 +1,6 @@
 import React from "react";
 
-import boilerTube from "../img/Boiler-Tube.jpg";
+import boilerTube from "../img/tubes.jpeg";
 import gauges from "../img/gauges.jpg";
 import oilCirculator from "../img/oil-circulator.jpg";
 import safetyValve from "../img/safety-valve.jpg";

@@ -87,7 +87,7 @@ const About = () => {
           </h1>
           <p className="text-xl max-w-3xl text-blue-100">
             Leading the way in boiler solutions and industrial heating systems
-            across Kenya since 2008
+            across Kenya since 2021.
           </p>
         </div>
       </section>
