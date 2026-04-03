@@ -19,21 +19,6 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      subject: "",
-      message: "",
-    });
-  };
-
   const contactInfo = [
     {
       icon: (
@@ -207,126 +192,159 @@ const Contact = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="john@company.com"
-                      />
-                    </div>
-                  </div>
+                <form
+                  action="https://formsubmit.co/gearedenergy@gmail.com"
+                  method="POST"
+                  onSubmit={() => setSubmitted(true)}
+                >
+                  {/* FormSubmit.co Configuration */}
+                  <input
+                    type="hidden"
+                    name="_cc"
+                    value="ayub.wanje@gmail.com"
+                  />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="box" />
+                  <input
+                    type="hidden"
+                    name="_autoresponse"
+                    value="Thank you for contacting Geared Energy. We have received your message and will get back to you within 24 hours. For urgent matters, please call us at +254 729 319 247."
+                  />
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Contact Form Submission"
+                  />
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Honeypot for spam prevention */}
+                  <input
+                    type="text"
+                    name="_honey"
+                    style={{ display: "none" }}
+                  />
+
+                  {/* Form Fields */}
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                          placeholder="john@company.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                          placeholder="+254 700 000 000"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Company Name
+                        </label>
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                          placeholder="Your Company"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number *
+                        Subject *
                       </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
+                      <select
+                        name="subject"
+                        value={formData.subject}
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="+254 700 000 000"
-                      />
+                      >
+                        <option value="">Select a subject</option>
+                        <option value="Sales Inquiry">Sales Inquiry</option>
+                        <option value="Technical Support">
+                          Technical Support
+                        </option>
+                        <option value="Service Request">Service Request</option>
+                        <option value="Parts Inquiry">Parts Inquiry</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Emergency Service">
+                          Emergency Service
+                        </option>
+                      </select>
                     </div>
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Company Name
+                        Message *
                       </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
+                      <textarea
+                        name="message"
+                        value={formData.message}
                         onChange={handleChange}
+                        required
+                        rows="6"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="Your Company"
-                      />
+                        placeholder="Please provide details about your inquiry..."
+                      ></textarea>
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
-                    </label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    <button
+                      type="submit"
+                      className="btn-primary w-full flex items-center justify-center"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="Sales Inquiry">Sales Inquiry</option>
-                      <option value="Technical Support">
-                        Technical Support
-                      </option>
-                      <option value="Service Request">Service Request</option>
-                      <option value="Parts Inquiry">Parts Inquiry</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Emergency Service">
-                        Emergency Service
-                      </option>
-                    </select>
+                      Send Message
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="ml-2 h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="6"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Please provide details about your inquiry..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn-primary w-full flex items-center justify-center"
-                  >
-                    Send Message
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="ml-2 h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
                 </form>
               )}
             </div>
