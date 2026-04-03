@@ -218,7 +218,7 @@ const Footer = () => {
                 <FaInstagram className="h-6 w-6" />
               </a>
               <a
-                href="https://www.tiktok.com/@gearedenergy"
+                href="https://www.tiktok.com/@gearedenergyltd"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
