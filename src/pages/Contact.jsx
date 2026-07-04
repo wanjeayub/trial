@@ -99,6 +99,19 @@ const Contact = () => {
     },
   ];
 
+  // Google Maps embed URL - Replace the coordinates with your actual location
+  // You can get these coordinates from WhatsApp pinned location
+  const googleMapsEmbedUrl =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.35853743783!2d36.6821967!3d-1.3028611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s";
+
+  // Direct Google Maps link with your coordinates
+  // Replace these coordinates with your actual ones
+  const googleMapsLink =
+    "https://www.google.com/maps/dir//-1.3028611,36.6821967/@-1.3028611,36.6821967,15z";
+
+  // If you have the exact WhatsApp pinned location coordinates, replace the values above
+  // Example: const googleMapsLink = "https://www.google.com/maps/dir//-1.3032,36.6825/@-1.3032,36.6825,17z";
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -349,25 +362,90 @@ const Contact = () => {
               )}
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 bg-gray-100 rounded-xl h-64 flex items-center justify-center">
-              <div className="text-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-gray-400 mx-auto mb-2 h-8 w-8"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+            {/* Google Maps Integration */}
+            <div className="mt-8 bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+                <h3 className="font-semibold text-lg">Our Location</h3>
+                <a
+                  href={googleMapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-blue-700 font-medium text-sm flex items-center gap-2"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p className="text-gray-600">
-                  Map integration can be added here
-                </p>
-                <p className="text-sm text-gray-500 mt-1">(Google Maps API)</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Get Directions
+                </a>
+              </div>
+              <div className="relative w-full" style={{ height: "400px" }}>
+                <iframe
+                  src={googleMapsEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Geared Energy Location"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <div className="p-4 bg-gray-50 border-t border-gray-200">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-primary"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span className="text-sm text-gray-600">
+                      Industrial Area, Nairobi, Kenya
+                    </span>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={googleMapsLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary text-sm px-4 py-2"
+                    >
+                      Open in Google Maps
+                    </a>
+                    <a
+                      href="https://wa.me/254729319247?text=Hi%2C%20I%20need%20directions%20to%20your%20office"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-7.472 7.578h-.001C8.488 21.971 4.894 21.971 2 19.077l.001-.001c-2.894-2.894-2.894-7.588 0-10.482 2.894-2.894 7.588-2.894 10.482 0 2.894 2.894 2.894 7.588 0 10.482zm4.741-12.223c-.739-.739-1.604-1.323-2.573-1.747-.969-.424-2.008-.65-3.076-.65-1.068 0-2.107.226-3.076.65-.969.424-1.834 1.008-2.573 1.747-.739.739-1.323 1.604-1.747 2.573-.424.969-.65 2.008-.65 3.076 0 1.068.226 2.107.65 3.076.424.969 1.008 1.834 1.747 2.573.739.739 1.604 1.323 2.573 1.747.969.424 2.008.65 3.076.65 1.068 0 2.107-.226 3.076-.65.969-.424 1.834-1.008 2.573-1.747.739-.739 1.323-1.604 1.747-2.573.424-.969.65-2.008.65-3.076 0-1.068-.226-2.107-.65-3.076-.424-.969-1.008-1.834-1.747-2.573z" />
+                      </svg>
+                      WhatsApp Directions
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
