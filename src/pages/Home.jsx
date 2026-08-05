@@ -18,9 +18,11 @@ import emergencyRepairsImg from "../img/refactory-cement.jpg";
 // Import client logos
 import cherryLogo from "../img/cherry-logo.png";
 import timberStudiosLogo from "../img/timber-logo.jpeg";
-import boilafricaLogo from "../img/boilafrica_logo.jpg";
 import beulaTimberLogo from "../img/beulah_logo.jpg";
 import mokoMattressesLogo from "../img/moko_logo.jpeg";
+
+// import our partner logos
+import dehuLogo from "../img/dehu_logo.jpg";
 
 const Home = () => {
   const services = [
@@ -73,12 +75,6 @@ const Home = () => {
       alt: "Timber Studios Ltd. Logo",
     },
     {
-      id: 3,
-      name: "Boilafrica General Suppliers",
-      logo: boilafricaLogo,
-      alt: "Boilafrica General Suppliers Logo",
-    },
-    {
       id: 4,
       name: "Beula Timber Ltd.",
       logo: beulaTimberLogo,
@@ -89,6 +85,15 @@ const Home = () => {
       name: "Moko Mattresses Ltd.",
       logo: mokoMattressesLogo,
       alt: "Moko Mattresses Ltd. Logo",
+    },
+  ];
+
+  const partners = [
+    {
+      id: 1,
+      name: "Dehu Limited.",
+      logo: dehuLogo,
+      alt: "Dehu Limited. Logo",
     },
   ];
 
@@ -291,6 +296,61 @@ const Home = () => {
                 <img
                   src={client.logo}
                   alt={client.alt}
+                  className="max-h-16 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Testimonial */}
+          <div className="mt-12 bg-white rounded-lg p-8 max-w-3xl mx-auto shadow-lg">
+            <div className="text-primary mb-4 flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-10 w-10"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+            </div>
+            <p className="text-lg italic text-gray-700 text-center mb-4">
+              "Geared Energy provided exceptional boiler installation services
+              for our manufacturing facility. Their expertise and
+              professionalism exceeded our expectations."
+            </p>
+            <p className="font-semibold text-center text-gray-800">
+              — Operations Manager, Moko Mattresses Ltd.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section
+        ref={(el) => (sectionRefs.current[3] = el)}
+        className={`py-16 bg-gray-50 transition-all duration-1000 transform ${
+          isVisible[3]
+            ? "translate-y-0 opacity-100"
+            : "translate-y-10 opacity-0"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Partners
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {partners.map((partner) => (
+              <div
+                key={partner.id}
+                className="bg-white rounded-lg shadow-md p-6 flex items-center justify-center hover:shadow-lg transition-shadow"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.alt}
                   className="max-h-16 object-contain"
                 />
               </div>
