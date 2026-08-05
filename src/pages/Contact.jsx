@@ -102,12 +102,11 @@ const Contact = () => {
   // Google Maps embed URL - Replace the coordinates with your actual location
   // You can get these coordinates from WhatsApp pinned location
   const googleMapsEmbedUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.35853743783!2d36.6821967!3d-1.3028611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s";
+    "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d359.9701502953811!2d36.8381774570521!3d-1.304240035013892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2ske!4v1785896507157!5m2!1sen!2ske";
 
   // Direct Google Maps link with your coordinates
   // Replace these coordinates with your actual ones
-  const googleMapsLink =
-    "https://www.google.com/maps/dir//-1.3028611,36.6821967/@-1.3028611,36.6821967,15z";
+  const googleMapsLink = "https://maps.app.goo.gl/MmRPTJzobFMcqaHAA";
 
   // If you have the exact WhatsApp pinned location coordinates, replace the values above
   // Example: const googleMapsLink = "https://www.google.com/maps/dir//-1.3032,36.6825/@-1.3032,36.6825,17z";
