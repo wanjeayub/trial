@@ -143,11 +143,13 @@ const Home = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fadeInUp">
-            Professional Boiler Solutions in Kenya
+            Industrial Boiler, Steam & Utility Engineering Solutions in Kenya
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fadeInUp delay-200">
-            Your trusted partner for boiler installation, maintenance, and
-            genuine spare parts supply.
+            Geared Energy Solutions Ltd provides industrial boiler services,
+            steam-system engineering, water treatment, fabrication, utility
+            maintenance, equipment supply and technical support for industrial
+            facilities across Kenya.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-400">
             <a
